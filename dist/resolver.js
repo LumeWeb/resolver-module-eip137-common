@@ -22,7 +22,7 @@ export default class Resolver extends AbstractResolverModule {
         return new ENS({ provider, ensAddress: getEnsAddress(1) });
     }
     async resolve(domain, options, bypassCache) {
-        if (this.isTldSupported(domain)) {
+        if (!(options.options && options.options.bypassTldCheck) && this.isTldSupported(domain)) {
             return this.resolve137(domain, options, bypassCache);
         }
         return resolverEmptyResponse();
