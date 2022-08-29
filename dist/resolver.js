@@ -1,7 +1,7 @@
 import RpcProvider from "./rpcProvider.js";
 // @ts-ignore
 import ENSRoot, { getEnsAddress } from "@lumeweb/ensjs";
-import { AbstractResolverModule, DNS_RECORD_TYPE, resolverEmptyResponse, resolverError, resolveSuccess, } from "@lumeweb/resolver-common";
+import { AbstractResolverModule, DNS_RECORD_TYPE, resolverEmptyResponse, resolverError, resolveSuccess, } from "@lumeweb/libresolver";
 import pocketNetworks from "@lumeweb/pokt-rpc-endpoints";
 const ENS = ENSRoot.default;
 const networkMap = {

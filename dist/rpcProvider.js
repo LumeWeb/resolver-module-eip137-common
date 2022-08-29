@@ -96,19 +96,23 @@ function checkError(method, error, params) {
     throw error;
 }
 export default class RpcProvider extends ethers.providers.BaseProvider {
-    constructor(dnsChain, dnsNetwork, force = false) {
+    constructor(dnsChain, dnsNetwork, bypassCache = false) {
         const networkOrReady = { name: "dummy", chainId: 0 };
         super(networkOrReady);
         this._dnsChain = dnsChain;
         this._rpcNetwork = dnsNetwork;
-        this._force = force;
+        this._bypassCache = bypassCache;
     }
     async detectNetwork() {
         return { name: "dummy", chainId: 0 };
     }
     async send(method, params) {
-        const query = this._rpcNetwork.query(method, this._dnsChain, params, this._force);
-        return query.result;
+        const query = this._rpcNetwork.wisdomQuery(method, "evm", [this._dnsChain, ...params], this._bypassCache);
+        const ret = await query.result;
+        if (ret.error) {
+            throw new Error(ret.error);
+        }
+        return ret.data;
     }
     prepareRequest(method, params) {
         switch (method) {
