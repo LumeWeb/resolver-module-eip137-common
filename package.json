@@ -4,12 +4,14 @@
     "main": "dist/index.js",
     "type": "module",
     "dependencies": {
+        "@lumeweb/dht-rpc-client": "https://github.com/LumeWeb/dht-rpc-client.git",
         "@lumeweb/ensjs": "*",
+        "@lumeweb/libresolver": "https://github.com/LumeWeb/libresolver.git",
         "@lumeweb/pokt-rpc-endpoints": "https://github.com/LumeWeb/pokt-rpc-endpoints.git",
-        "@lumeweb/resolver-common": "https://github.com/LumeWeb/resolver-common.git",
         "ethers": "^5.6.9"
     },
     "devDependencies": {
+        "@lumeweb/relay": "https://github.com/LumeWeb/relay.git",
         "@types/node": "*"
     }
 }

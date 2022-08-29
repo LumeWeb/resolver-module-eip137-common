@@ -10,7 +10,7 @@ import {
   resolveSuccess,
     DNSResult,
     ResolverOptions,
-} from "@lumeweb/resolver-common";
+} from "@lumeweb/libresolver";
 import pocketNetworks from "@lumeweb/pokt-rpc-endpoints";
 
 const ENS = ENSRoot.default;
